@@ -2,7 +2,7 @@
 
 Unpregnant is a game developed in Javascript with [p5.js](https://p5js.org/) and [p5.play](https://molleindustria.github.io/p5.play/), in this game you are an ovule and need to avoid sperm, the longer you survive the better.
 
-[Click to play!](https://antoniopedro9.github.io/unpregnant/index.html)
+[Click to play!](https://antoniopedro9.github.io/unpregnant/)
 
 ## How it works:
 
