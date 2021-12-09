@@ -126,7 +126,7 @@ function touchStarted() {
     Ovule.velocity.y = 0;
     Ovule.velocity.y -= moveSpeed;
   } 
-	else {
+  else {
     Ovule.velocity.y = 0;
     Ovule.velocity.y += moveSpeed;
   }
