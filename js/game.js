@@ -119,6 +119,7 @@ function keyPressed() {
     Ovule.velocity.y += moveSpeed;
   }
 }
+
 function touchStarted() {
   move_sound.play();
 
