@@ -18,7 +18,6 @@ function setup() {
 }
 
 function draw() {
-  background(233, 30, 99);
   gameRules();
   drawSprites();
 }
@@ -55,6 +54,8 @@ function createSpermatozoom(lenght) {
 }
 
 function gameRules() {
+  background(233, 30, 99);
+
   if (frameCount % 16 == 0) {
     createSpermatozoom(height / 16);
   }
@@ -63,6 +64,7 @@ function gameRules() {
     Ovule.position.y = height - (Ovule.height / 2 + Ovule.height / 16);
     Ovule.velocity.y = 0;
   }
+
   if (Ovule.position.y < 0 + (Ovule.height / 2 + Ovule.height / 16)) {
     Ovule.position.y = 0 + (Ovule.height / 2 + Ovule.height / 16);
     Ovule.velocity.y = 0;
@@ -146,10 +148,3 @@ function gameOver() {
 
   setup();
 }
-
-// pra que serve
-// tantos códigos?
-// se a vida
-// não é programada
-// e as melhores coisas
-// não têm lógica
