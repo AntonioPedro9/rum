@@ -1,17 +1,17 @@
-let width = window.innerWidth;
-let height = window.innerHeight;
-let Ovule, Spermatozoom, sperm, chronometer, pontuation = 0;
+const width = window.innerWidth;
+const height = window.innerHeight;
+const move_sound = document.getElementById("move_sound");
+const hit_sound = document.getElementById("hit_sound");
 
-let move_sound = document.getElementById("move_sound");
-let hit_sound = document.getElementById("hit_sound");
+let Ovule, Spermatozoom, spermatozoomArray;
 
 function setup() {
   createCanvas(width, height);
 
-  sperm = new Group();
+  spermatozoomArray = new Group();
 
   createOvule(height / 8);
-  tutorial();
+
   score();
 }
 
@@ -48,7 +48,7 @@ function createSpermatozoom(lenght) {
   Spermatozoom.velocity.x = -random(width / 256, width / 128);
   Spermatozoom.life = 256;
 
-  sperm.add(Spermatozoom);
+  spermatozoomArray.add(Spermatozoom);
 }
 
 function gameRules() {
@@ -58,38 +58,47 @@ function gameRules() {
     createSpermatozoom(height / 16);
   }
 
-  if (Ovule.position.y > height - (Ovule.height / 2 + Ovule.height / 16)) {
-    Ovule.position.y = height - (Ovule.height / 2 + Ovule.height / 16);
+  let top = 0 + (Ovule.height / 2 + Ovule.height / 16);
+  let bottom = height - (Ovule.height / 2 + Ovule.height / 16);
+
+  if (Ovule.position.y < top) {
+    Ovule.position.y = top;
     Ovule.velocity.y = 0;
   }
 
-  if (Ovule.position.y < 0 + (Ovule.height / 2 + Ovule.height / 16)) {
-    Ovule.position.y = 0 + (Ovule.height / 2 + Ovule.height / 16);
+  if (Ovule.position.y > bottom) {
+    Ovule.position.y = bottom;
     Ovule.velocity.y = 0;
   }
 
-  if (sperm.overlap(Ovule)) {
+  if (spermatozoomArray.overlap(Ovule)) {
     gameOver();
   }
 }
 
-function tutorial() {
-  let tutorial = createSprite();
+let direction = "up";
 
-  tutorial.draw = () => {
-    stroke(255);
-    line(0, height / 2, width, height / 2);
-    fill(255);
-    noStroke();
+function touchStarted() {
+  move_sound.play();
 
-    textSize(16);
-    textAlign(CENTER, CENTER);
-    text("Up", width / 2, height / 4);
-    text("Down", width / 2, (height / 4) * 3);
-  };
+  let moveSpeed = height / 128;
 
-  tutorial.life = 128;
+  if (direction == "up") {
+    Ovule.velocity.y = 0;
+    Ovule.velocity.y -= moveSpeed;
+
+    direction = "down";
+  }
+  else {
+    Ovule.velocity.y = 0;
+    Ovule.velocity.y += moveSpeed;
+
+    direction = "up";
+  }
 }
+
+let chronometer;
+let pontuation = 0;
 
 function score() {
   let score = createSprite();
@@ -105,43 +114,15 @@ function score() {
   };
 }
 
-let moveSpeed = height / 128;
-
-function keyPressed() {
-  move_sound.play();
-
-  if (keyCode === UP_ARROW) {
-    Ovule.velocity.y = 0;
-    Ovule.velocity.y -= moveSpeed;
-  }
-  if (keyCode === DOWN_ARROW) {
-    Ovule.velocity.y = 0;
-    Ovule.velocity.y += moveSpeed;
-  }
-}
-
-function touchStarted() {
-  move_sound.play();
-
-  if (mouseY <= height / 2) {
-    Ovule.velocity.y = 0;
-    Ovule.velocity.y -= moveSpeed;
-  } 
-  else {
-    Ovule.velocity.y = 0;
-    Ovule.velocity.y += moveSpeed;
-  }
-}
-
 function gameOver() {
   hit_sound.play();
 
-  // alert(`You are pregnant!\nScore: ${pontuation}`);
-
   Ovule.remove();
-  sperm.removeSprites();
+
+  spermatozoomArray.removeSprites();
 
   pontuation = 0;
+
   clearInterval(chronometer);
 
   setup();
