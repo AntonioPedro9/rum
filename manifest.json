@@ -8,6 +8,11 @@
       "type": "image/png",
       "sizes": "192x192",
       "purpose": "maskable"
+    },
+    {
+      "src": "./assets/splash-screen.png",
+      "type": "image/png",
+      "sizes": "512x512"
     }
   ],
   "start_url": "/unpregnant/",
