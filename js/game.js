@@ -5,8 +5,6 @@ let Ovule, Spermatozoom, sperm, chronometer, pontuation = 0;
 let move_sound = document.getElementById("move_sound");
 let hit_sound = document.getElementById("hit_sound");
 
-window.addEventListener("orientationchange", () => location.reload());
-
 function setup() {
   createCanvas(width, height);
 
@@ -138,7 +136,7 @@ function touchStarted() {
 function gameOver() {
   hit_sound.play();
 
-  alert(`You are pregnant!\nScore: ${pontuation}`);
+  // alert(`You are pregnant!\nScore: ${pontuation}`);
 
   Ovule.remove();
   sperm.removeSprites();

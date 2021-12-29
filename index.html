@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1" />
-    <meta name="description" content="Javascript game">
+    <meta name="description" content="Javascript game" />
+    <meta name="theme-color" content="#e91e63" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
-    <!-- Icons  -->
-    <link rel="icon" href="assets/icon.png" />
-    <link rel="apple-touch-icon" href="assets/icon.png" />
-
-    <!-- Scripts -->
-    <script src="js/p5/p5.min.js"></script>
-    <script src="js/p5/p5.play.js"></script>
-    <script async src="js/game.js"></script>
+    <link rel="icon" href="./assets/icon.png" />
+    <link rel="apple-touch-icon" href="./assets/icon.png" />
+    <link rel="manifest" href="./manifest.json" />
 
     <title>Unpregnant</title>
 
@@ -26,7 +24,12 @@
   </head>
 
   <body>
-    <audio id="move_sound" src="assets/sounds/move_sound.wav"></audio>
-    <audio id="hit_sound" src="assets/sounds/hit_sound.wav"></audio>
+    <audio id="move_sound" src="./assets/sounds/move_sound.wav"></audio>
+    <audio id="hit_sound" src="./assets/sounds/hit_sound.wav"></audio>
   </body>
+
+  <script src="./js/main.js"></script>
+  <script src="./js/p5/p5.min.js"></script>
+  <script src="./js/p5/p5.play.js"></script>
+  <script src="./js/game.js"></script>
 </html>
