@@ -1,16 +1,8 @@
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open("static").then((cache) => {
-      console.log("Service worker installed.");
-      return cache.addAll([
-        "./",
-        "./js/p5/p5.min.js",
-        "./js/p5/p5.play.js",
-        "./js/game.js",
-        "./js/main.js",
-        "./assets/sounds/hit_sound.wav",
-        "./assets/sounds/move_sound.wav",
-      ]);
+      console.log("Offline ready.");
+      return cache.addAll(["./", "./js/p5/p5.min.js", "./js/p5/p5.play.js", "./js/game.js", "./js/main.js"]);
     })
   );
 });
