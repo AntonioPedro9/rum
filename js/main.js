@@ -2,4 +2,6 @@ if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("serviceworker.js");
 }
 
-window.addEventListener("orientationchange", () => location.reload());
+window.addEventListener("orientationchange", () => {
+  location.reload();
+});

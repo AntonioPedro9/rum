@@ -78,7 +78,7 @@ function gameRules() {
 
 let direction = "up";
 
-function touchStarted() {
+function move() {
   move_sound.play();
 
   let moveSpeed = height / 128;
@@ -95,6 +95,14 @@ function touchStarted() {
 
     direction = "up";
   }
+}
+
+function keyPressed() {
+  move();
+}
+
+function mouseClicked() {
+  move();
 }
 
 let chronometer;
