@@ -18,7 +18,7 @@
   ],
   "start_url": "/unpregnant/",
   "background_color": "#e91e63",
-  "theme_color": "#d81b60",
+  "theme_color": "#c2185b",
   "display": "standalone",
   "orientation": "landscape"
 }
