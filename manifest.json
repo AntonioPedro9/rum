@@ -1,6 +1,6 @@
 {
   "name": "Rum",
-  "start_url": "/rum",
+  "start_url": "/rum/",
   "background_color": "#e91e63",
   "theme_color": "#c2185b",
   "display": "standalone",
